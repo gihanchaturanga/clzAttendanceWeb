@@ -882,20 +882,30 @@
                                                 <td>2022-11-03</td>
                                                 <td> 2022-12-03</td>
                                                 <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning">Update</button>
-                                                        <button class="btn btn-dark">Block</button>
-                                                        <button class="btn btn-danger">Remove</button>
-                                                    </div>
+                                                    <center>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-warning">Update</button>
+                                                            <button onclick="btnClick(this.innerHTML)" id="btnBlockId" class="btn btn-dark">Block</button>
+                                                            <button class="btn btn-danger">Remove</button>
+                                                        </div>
+                                                    </center>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <td>Other browsers</td>
-                                                <td>All others</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>U</td>
+                                                <td>INST 2</td>
+                                                <td>Java Institute Gampaha</td>
+                                                <td>2021-10-20</td>
+                                                <td>2021-11-20</td>
+                                                <td>
+                                                    <center>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-warning">Update</button>
+                                                            <button class="btn btn-info">Unblock</button>
+                                                            <button class="btn btn-danger">Remove</button>
+                                                        </div>
+                                                    </center>
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -977,6 +987,22 @@
                 "responsive": true,
             });
         });
+    </script>
+    <script>
+        function btnClick(name) {
+            const btn = document.getElementById("btnBlockId");
+            if (btn.innerHTML == "Block") {
+                console.log("came to if - true");
+                btn.innerHTML = "Unblock";
+                btn.classList.remove('btn-dark');
+                btn.classList.add('btn-info');
+            } else {
+                console.log("came to if - false");
+                btn.innerHTML = "Block";
+                btn.classList.remove('btn-info');
+                btn.classList.add('btn-dark');
+            }
+        }
     </script>
 </body>
 
