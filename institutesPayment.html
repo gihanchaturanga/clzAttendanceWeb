@@ -840,12 +840,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Details of Registered Institutes</h1>
+                            <h1>Payment Details</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
+                                <li class="breadcrumb-item active">Payment Details</li>
                             </ol>
                         </div>
                     </div>
@@ -861,7 +861,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Details of Registered Institutes</h3>
+                                    <h3 class="card-title">Payment Details</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -870,8 +870,8 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Institute Name</th>
-                                                <th>Last Paid Date</th>
-                                                <th>Next Payment Date</th>
+                                                <th>Payment Date</th>
+                                                <th>Amount (LKR)</th>
                                                 <th>Settings</th>
                                             </tr>
                                         </thead>
@@ -884,9 +884,8 @@
                                                 <td>
                                                     <center>
                                                         <div class="btn-group">
-                                                            <button class="btn btn-warning">Update</button>
-                                                            <button class="blk-btn btn btn-dark">Block</button>
-                                                            <button class="btn btn-danger">Remove</button>
+                                                            <button class="btn btn-success">Mark As Paid</button>
+                                                            <button class="btn btn-primary">Payment History</button>
                                                         </div>
                                                     </center>
                                                 </td>
@@ -900,9 +899,8 @@
                                                 <td>
                                                     <center>
                                                         <div class="btn-group">
-                                                            <button class="btn btn-warning">Update</button>
-                                                            <button class="blk-btn btn btn-dark">Block</button>
-                                                            <button class="btn btn-danger">Remove</button>
+                                                            <button class="btn btn-success">Mark As Paid</button>
+                                                            <button class="btn btn-primary">Payment History</button>
                                                         </div>
                                                     </center>
                                                 </td>
@@ -985,15 +983,6 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $(".blk-btn").click(function() {
-                $(this).toggleClass("btn-info");
-                $(this).toggleClass("btn-dark");
-                $(this).text($(this).text() == 'Block' ? "Unblock" : "Block");
             });
         });
     </script>
