@@ -4,14 +4,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Simple Tables</title>
+    <title>Add an Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="../plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="../plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -24,7 +42,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../index3.html" class="nav-link">Home</a>
+                    <a href="index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -157,7 +175,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../index3.html" class="brand-link">
+            <a href="index3.html" class="brand-link">
                 <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
@@ -201,19 +219,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../index.html" class="nav-link">
+                                    <a href="index.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../index2.html" class="nav-link">
+                                    <a href="index2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../index3.html" class="nav-link">
+                                    <a href="index3.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v3</p>
                                     </a>
@@ -383,8 +401,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Forms
@@ -399,7 +417,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../forms/advanced.html" class="nav-link">
+                                    <a href="../forms/advanced.html" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Advanced Elements</p>
                                     </a>
@@ -418,8 +436,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Tables
@@ -428,7 +446,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link active">
+                                    <a href="../tables/simple.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Simple Tables</p>
                                     </a>
@@ -695,7 +713,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../starter.html" class="nav-link">
+                                    <a href="starter.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Starter Page</p>
                                     </a>
@@ -727,7 +745,7 @@
                         </li>
                         <li class="nav-header">MISCELLANEOUS</li>
                         <li class="nav-item">
-                            <a href="../iframe.html" class="nav-link">
+                            <a href="iframe.html" class="nav-link">
                                 <i class="nav-icon fas fa-ellipsis-h"></i>
                                 <p>Tabbed IFrame Plugin</p>
                             </a>
@@ -836,12 +854,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Pending Payments of Teachers</h1>
+                            <h1>Add New Class</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Classes</li>
+                                <li class="breadcrumb-item active">Add New Class</li>
                             </ol>
                         </div>
                     </div>
@@ -852,92 +870,86 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <!-- /.col -->
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
+
+                    <!-- /.card -->
+
+                    <div class="row mt-lg-5 mt-md-4 mt-sm-1">
+                        <div class="offset-md-3 col-md-6">
+
+                            <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Payment Details of Teachers</h3>
+                                    <h3 class="card-title">Add details of the Class</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Name of Payment Type<span class="text-danger">*</span></label>
 
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
+                                            </div>
+                                            <input id="name" type="text" class="form-control">
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- Date dd/mm/yyyy -->
 
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
+                                    <!-- phone mask -->
+                                    <div class="form-group">
+                                        <label>Payment<span class="text-danger">*</span></label><br>
+                                        <div class="">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                <input id="mobile" type="text" class="form-control">
                                             </div>
                                         </div>
+                                        <!-- /.input group -->
                                     </div>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Teacher's Name</th>
-                                                <th>Payment(LKR)</th>
-                                                <th>Payment Month</th>
-                                                <th>Settings</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Gihan Chathuranga Attanayake</td>
-                                                <td>500000.00</td>
-                                                <td>2022-02-04</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success">Mark As Paid</button>
-                                                        <a href="teachersPayments.html" class="btn btn-info">More Details</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gihan Chathuranga Attanayake</td>
-                                                <td>500000.00</td>
-                                                <td>2022-02-04</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success">Mark As Paid</button>
-                                                        <button class="btn btn-info">More Details</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gihan Chathuranga Attanayake</td>
-                                                <td>500000.00</td>
-                                                <td>2022-02-04</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success">Mark As Paid</button>
-                                                        <button class="btn btn-info">More Details</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gihan Chathuranga Attanayake</td>
-                                                <td>500000.00</td>
-                                                <td>2022-02-04</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success">Mark As Paid</button>
-                                                        <button class="btn btn-info">More Details</button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                                    <!-- /.form group -->
+
+                                    <!-- IP mask -->
+                                    <div class="row mt-4">
+                                        <!-- <button class="btn btn-secondary ml-auto"><i class="fas fa-arrow-circle-left"></i>&nbsp&nbspBack</button> -->
+                                        <button id="input" class="btn btn-primary ml-auto mr-3"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp&nbspAdd Payment</button>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+                                    <div class="mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <th>Payment Name</th>
+                                                <th>Fee (LKR)</th>
+                                                <th></th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Chemistry | Phisics | Biology Pack</td>
+                                                    <td>20000.00</td>
+                                                    <td>
+                                                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Chemistry | Phisics | Biology Pack</td>
+                                                    <td>20000.00</td>
+                                                    <td>
+                                                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
                         </div>
+                        <!-- /.col (left) -->
+
                     </div>
                     <!-- /.row -->
                     <!-- /.row -->
@@ -966,10 +978,222 @@
     <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="../plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="../plugins/moment/moment.min.js"></script>
+    <script src="../plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Bootstrap Switch -->
+    <script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="../plugins/dropzone/min/dropzone.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function() {
+                //Initialize Select2 Elements
+                $('.select2').select2()
+
+                //Initialize Select2 Elements
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+
+                //Datemask dd/mm/yyyy
+                $('#datemask').inputmask('dd/mm/yyyy', {
+                        'placeholder': 'dd/mm/yyyy'
+                    })
+                    //Datemask2 mm/dd/yyyy
+                $('#datemask2').inputmask('mm/dd/yyyy', {
+                        'placeholder': 'mm/dd/yyyy'
+                    })
+                    //Money Euro
+                $('[data-mask]').inputmask()
+
+                //Date picker
+                $('#reservationdate').datetimepicker({
+                    format: 'L'
+                });
+
+                //Date and time picker
+                $('#reservationdatetime').datetimepicker({
+                    icons: {
+                        time: 'far fa-clock'
+                    }
+                });
+
+                //Date range picker
+                $('#reservation').daterangepicker()
+                    //Date range picker with time picker
+                $('#reservationtime').daterangepicker({
+                        timePicker: true,
+                        timePickerIncrement: 30,
+                        locale: {
+                            format: 'MM/DD/YYYY hh:mm A'
+                        }
+                    })
+                    //Date range as a button
+                $('#daterange-btn').daterangepicker({
+                        ranges: {
+                            'Today': [moment(), moment()],
+                            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                            'This Month': [moment().startOf('month'), moment().endOf('month')],
+                            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                        },
+                        startDate: moment().subtract(29, 'days'),
+                        endDate: moment()
+                    },
+                    function(start, end) {
+                        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                    }
+                )
+
+                //Timepicker
+                $('#timepicker').datetimepicker({
+                    format: 'LT'
+                })
+
+                //Bootstrap Duallistbox
+                $('.duallistbox').bootstrapDualListbox()
+
+                //Colorpicker
+                $('.my-colorpicker1').colorpicker()
+                    //color picker with addon
+                $('.my-colorpicker2').colorpicker()
+
+                $('.my-colorpicker2').on('colorpickerChange', function(event) {
+                    $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+                })
+
+                $("input[data-bootstrap-switch]").each(function() {
+                    $(this).bootstrapSwitch('state', $(this).prop('checked'));
+                })
+
+            })
+            // BS-Stepper Init
+        document.addEventListener('DOMContentLoaded', function() {
+            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        })
+
+        // DropzoneJS Demo Code Start
+        Dropzone.autoDiscover = false
+
+        // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+        var previewNode = document.querySelector("#template")
+        previewNode.id = ""
+        var previewTemplate = previewNode.parentNode.innerHTML
+        previewNode.parentNode.removeChild(previewNode)
+
+        var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+            url: "/target-url", // Set the url
+            thumbnailWidth: 80,
+            thumbnailHeight: 80,
+            parallelUploads: 20,
+            previewTemplate: previewTemplate,
+            autoQueue: false, // Make sure the files aren't queued until manually added
+            previewsContainer: "#previews", // Define the container to display the previews
+            clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+        })
+
+        myDropzone.on("addedfile", function(file) {
+            // Hookup the start button
+            file.previewElement.querySelector(".start").onclick = function() {
+                myDropzone.enqueueFile(file)
+            }
+        })
+
+        // Update the total progress bar
+        myDropzone.on("totaluploadprogress", function(progress) {
+            document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+        })
+
+        myDropzone.on("sending", function(file) {
+            // Show the total progress bar when upload starts
+            document.querySelector("#total-progress").style.opacity = "1"
+                // And disable the start button
+            file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+        })
+
+        // Hide the total progress bar when nothing's uploading anymore
+        myDropzone.on("queuecomplete", function(progress) {
+            document.querySelector("#total-progress").style.opacity = "0"
+        })
+
+        // Setup the buttons for all transfers
+        // The "add files" button doesn't need to be setup because the config
+        // `clickable` has already been specified.
+        document.querySelector("#actions .start").onclick = function() {
+            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+        }
+        document.querySelector("#actions .cancel").onclick = function() {
+                myDropzone.removeAllFiles(true)
+            }
+            // DropzoneJS Demo Code End
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#input").click(function() {
+                if ($("#name").val() == "") {
+                    $("#name").addClass("is-invalid").focus();
+                    toastr.error('Please fill all of required fields..!')
+                } else {
+                    if ($("#institute").val() == "") {
+                        $("#institute").addClass("is-invalid").focus();
+                        toastr.error('Please fill all of required fields..!')
+                    } else {
+                        if ($("#mobile").val() == "") {
+                            $("#mobile").addClass("is-invalid").focus();
+                            toastr.error('Please fill all of required fields..!')
+                        } else {
+                            if ($("#username").val() == "") {
+                                $("#username").addClass("is-invalid").focus();
+                                toastr.error('Please fill all of required fields..!')
+                            } else {
+                                if ($("#pwd").val() == "") {
+                                    $("#pwd").addClass("is-invalid").focus();
+                                    toastr.error('Please fill all of required fields..!')
+                                } else {
+                                    toastr.success('Data has Added Successfully..!');
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            $("input").keyup(function() {
+                $("input").removeClass("is-invalid");
+                $("select").removeClass("is-invalid");
+            });
+            $("select").change(function() {
+                $("input").removeClass("is-invalid");
+                $("select").removeClass("is-invalid");
+            });
+        });
+    </script>
+    <script src="../plugins/toastr/toastr.min.js"></script>
+    <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 </body>
 
 </html>

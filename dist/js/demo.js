@@ -7,6 +7,7 @@
 
 /* eslint-disable camelcase */
 
+
 (function ($) {
   'use strict'
 
@@ -148,7 +149,7 @@
     $sidebar_collapsed_checkbox.prop('checked', false)
   })
 
-  var $sidebar_fixed_checkbox = $('<input />', {
+  var $sidebar_fixed_checkbox = $('<input />', {  //-----------------------------sidebar fixed
     type: 'checkbox',
     value: 1,
     checked: $('body').hasClass('layout-fixed'),
