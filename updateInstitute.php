@@ -1,11 +1,10 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add New Institute</title>
+    <title>Update Institute</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +29,6 @@
     <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -173,6 +171,7 @@
         </nav>
         <!-- /.navbar -->
 
+        <!-- Main Sidebar Container -->
         <?php include 'devSidebar.php'; ?>
 
         <!-- Content Wrapper. Contains page content -->
@@ -182,12 +181,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add New Institute</h1>
+                            <h1>Update details of Java Institute - Gampaha</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Add New Institute</li>
+                                <li class="breadcrumb-item active">Update Institute</li>
                             </ol>
                         </div>
                     </div>
@@ -204,9 +203,9 @@
                     <div class="row mt-lg-5 mt-md-4 mt-sm-1">
                         <div class="offset-md-3 col-md-6">
 
-                            <div class="card card-primary">
+                            <div class="card card-warning">
                                 <div class="card-header">
-                                    <h3 class="card-title">Fill the details of the institute</h3>
+                                    <h3 class="card-title">Edit the details of the institute</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
@@ -216,7 +215,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-university"></i></span>
                                             </div>
-                                            <input type="text" id="name" class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -228,8 +227,9 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                             </div>
-                                            <input type="text" id="payDate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
+                                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                         </div>
+                                        <!-- /.input group -->
                                     </div>
                                     <!-- /.form group -->
 
@@ -241,13 +241,13 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                                 </div>
-                                                <input type="text" id="mobile1" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                             </div>
                                             <div class="input-group col-lg-6 mt-sm-1 mt-lg-0 mt-1">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
-                                                <input type="text" id="user1" class="form-control" placeholder="User's Name">
+                                                <input type="text" class="form-control" placeholder="User's Name">
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -255,39 +255,28 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                                 </div>
-                                                <input type="text" id="mobile2" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                             </div>
                                             <div class="input-group col-lg-6 mt-sm-1 mt-lg-0 mt-1">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                 </div>
-                                                <input type="text" id="user2" class="form-control" placeholder="User's Name">
+                                                <input type="text" class="form-control" placeholder="User's Name">
                                             </div>
                                         </div>
                                         <!-- /.input group -->
                                     </div>
                                     <!-- /.form group -->
-                                    <div class="form-group">
-                                        <label>Payment Type</label>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div><input name="payType" id="lifetime" value="LIFETIME" class="ml-4" type="radio" checked><label class="ml-2">Lifetime</label></div>
-                                                <div><input name="payType" id="onetime" value="ONETIME" class="ml-4" type="radio"><label class="ml-2">One Time</label></div>
-                                                <div><input name="payType" id="4months" value="4MONTHS" class="ml-4" type="radio"><label class="ml-2">4 Months</label></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
 
                                     <!-- phone mask -->
                                     <div class="form-group">
-                                        <label>Payment (LKR)<span class="text-danger">*</span></label>
+                                        <label>Monthly Payment (USD)<span class="text-danger">*</span></label>
 
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                             </div>
-                                            <input type="number" id="payment" class="text-right form-control">
+                                            <input type="text" class="text-right form-control">
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -295,8 +284,8 @@
 
                                     <!-- IP mask -->
                                     <div class="row mt-4">
-                                        <!-- <button class="btn btn-secondary ml-auto"><i class="fas fa-arrow-circle-left"></i>&nbsp&nbspBack</button> -->
-                                        <button id="input" class="btn btn-primary ml-auto mr-3"><i class="fas fa-plus-square"></i>&nbsp&nbspAdd Institute</button>
+                                        <button class="btn btn-secondary ml-auto"><i class="fas fa-arrow-circle-left"></i>&nbsp&nbspBack</button>
+                                        <button class="btn btn-warning ml-1 mr-3"><i class="fas fa-plus-square"></i>&nbsp&nbspAdd Institute</button>
                                         <!-- /.input group -->
                                     </div>
                                     <!-- /.form group -->
@@ -321,7 +310,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.1.0
             </div>
-            <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">Revotech Solutions, Sri Lanka</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2021 <a href="#">Revotech Solutions, Sri Lanka</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -361,6 +350,12 @@
     <script src="dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
+        $(document).ready(function() {
+            $('body').addClass('layout-fixed');
+            $(window).trigger('resize');
+        });
+
+
         $(function() {
                 //Initialize Select2 Elements
                 $('.select2').select2()
@@ -502,115 +497,6 @@
                 myDropzone.removeAllFiles(true)
             }
             // DropzoneJS Demo Code End
-    </script>
-    <script src="plugins/toastr/toastr.min.js"></script>
-    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('body').addClass('layout-fixed');
-            $(window).trigger('resize');
-            
-        });
-
-        $(document).ready(function(){
-            $("#name").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#payDate").focus();
-                }
-            });
-            $("#payDate").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#mobile1").focus();
-                }
-            });
-            $("#mobile1").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#user1").focus();
-                }
-            });
-            $("#user1").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#mobile2").focus();
-                }
-            });
-            $("#mobile2").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#user2").focus();
-                }
-            });
-            $("#user2").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#payment").focus();
-                }
-            });
-            $("#payment").keypress(function(event){
-                if(event.keyCode == 13){
-                    $("#input").click();
-                }
-            });
-
-            
-
-
-            $("#name").focus();
-            $("#input").click(function(){
-                var name = $("#name").val();
-                var payDate = $("#payDate").val().replaceAll('/', '-');
-                var mobile1 = $("#mobile1").val().replaceAll("\)", '').replaceAll("\(", '').replaceAll("-", '').replaceAll(' ', '');
-                var user1 = $("#user1").val();
-                var mobile2 = $("#mobile2").val().replaceAll("\)", '').replaceAll("\(", '').replaceAll("-", '').replaceAll(' ', '');
-                var user2 = $("#user2").val();
-                var payment = $("#payment").val();
-                var payType = $('input[name="payType"]:checked').val();
-
-                if(name != "" && payDate != "" && mobile1 != "" && user1 != "" && payment != ""){
-                    if(mobile1 != mobile2 && user1 != user2){
-                        
-                        $.ajax({
-                            type: "GET",
-                            url: "php/addInstitute.php",
-                            data: {
-                                name: name,
-                                payDate: payDate,
-                                mobile1: mobile1,
-                                user1: user1,
-                                mobile2: mobile2,
-                                user2: user2,
-                                payment: payment,
-                                payType: payType
-                            },
-                            success: function(res){
-                                if(res == 1){
-                                    toastr.success('Institute Has Been Added');
-                                    clear();
-                                }else if(res == 2){
-                                    toastr.error('Unexpected Error Occured, Please Try Again');
-                                }else if(res == 3){
-                                    toastr.warning('Please fill all of required fields');
-                                }else if(res == 4){
-                                    toastr.info('Duplicate Entry! Institute is already registered.');
-                                }
-                            }
-                        });
-
-                    }else{
-                        toastr.info('Duplicate contacts Details');
-                    }
-                }else{
-                    toastr.warning('please fill all of required fields');
-                }
-
-            });
-            function clear(){
-                $("#name").val("").focus();
-                $("#mobile1").val("");
-                $("#mobile2").val("");
-                $("#user1").val("");
-                $("#user2").val("");
-                $("#payment").val("");
-                $("#payDate").val("");
-            }
-        });
     </script>
 </body>
 

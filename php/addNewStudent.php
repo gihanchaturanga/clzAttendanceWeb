@@ -1,5 +1,6 @@
 <?php
     include 'DB.php';
+    session_start();
 
     function fil($data){
         $data1 = trim($data);
@@ -23,8 +24,9 @@
         $address_ = $_GET['address'];
         $scl_ = $_GET['school'];
         $emer_ = $_GET['emergency'];
+        $dob = $_GET['dob'];
 
-        if(!empty($name_) && !empty($mobile_) && !empty($address_)){//checking empty fields
+        if(!empty($name_) && !empty($mobile_) && !empty($address_) && !empty($dob)){//checking empty fields
             $name = fil($name_);
             $mobile = fil($mobile_);
             $email = fil($email_);
@@ -32,22 +34,23 @@
             $address = fil($address_);
             $scl = fil($scl_);
             $emer = fil($emer_);
+            $inst_id = $_SESSION['INST_ID'];
 
             //checking duplicates
             $sql = NULL;
             if(empty($eid)){
-                $sql = "SELECT * FROM student WHERE stat = '1' AND mobile = '$mobile'";
+                $sql = "SELECT * FROM student WHERE stat = '1' AND mobile = '$mobile' AND inst_id = '$inst_id'";
             }else{
-                $sql = "SELECT * FROM student WHERE stat = '1' AND mobile = '$mobile' OR eid = '$eid'";
+                $sql = "SELECT * FROM student WHERE stat = '1' AND mobile = '$mobile' AND inst_id = '$inst_id' OR eid = '$eid'";
             }
 
             $res = mysqli_query($conn, $sql);
             if(mysqli_num_rows($res) > 0){
                 echo 4;
             }else{
-                $query = "INSERT INTO student(name, mobile, address, email, school, emergency, eid, timestamp) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                $query = "INSERT INTO student(name, mobile, address, email, school, emergency, eid, timestamp, inst_id, dob) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("ssssssss", $name, $mobile, $address, $email, $scl, $emer, $eid, $date);
+                $stmt->bind_param("ssssssssis", $name, $mobile, $address, $email, $scl, $emer, $eid, $date, $inst_id, $dob);
                 if($stmt->execute()){
                     echo 1;
                 }else{

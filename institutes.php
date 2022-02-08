@@ -5,38 +5,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Institutes</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-        </div>
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -86,7 +70,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -102,7 +86,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -118,7 +102,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -176,144 +160,84 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <?php include 'adminSidebar.php'; ?>
+        <?php include 'devSidebar.php'; ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
+            <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Admin Dashboard<span class="text-primary">&nbsp@Java Institute - Gampaha</span></h1>
+                            <h1>Details of Registered Institutes</h1>
                         </div>
-                        <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Institutes</li>
                             </ol>
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+            </section>
 
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
                     <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-
-                                    <p>Students</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                    <p>Teachers</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>44</h3>
-
-                                    <p>Earnings per month</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                    <!-- Main row -->
-                    <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-12">
                             <div class="card">
-                                <div class="card-header border-0">
-                                    <div class="d-flex justify-content-between">
-                                        <h3 class="card-title">Earnings</h3>
-                                        <a href="javascript:void(0);">
-                                            <!--view report-->
-                                        </a>
-                                    </div>
+                                <div class="card-header">
+                                    <h3 class="card-title">Details of Registered Institutes</h3>
                                 </div>
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <p class="d-flex flex-column">
-                                            <span class="text-bold text-lg">18,230.00LKR</span>
-                                            <span>Amount</span>
-                                        </p>
-                                        <p class="ml-auto d-flex flex-column text-right">
-                                            <span class="text-success">
-                                            <i class="fas fa-arrow-up"></i> 33.1%
-                                            </span>
-                                            <span class="text-muted">Since last month</span>
-                                        </p>
-                                    </div>
-                                    <!-- /.d-flex -->
-
-                                    <div class="position-relative mb-4">
-                                        <canvas id="sales-chart" height="200"></canvas>
-                                    </div>
-
-                                    <div class="d-flex flex-row justify-content-end">
-                                        <span class="mr-2">
-                                        <i class="fas fa-square text-primary"></i> This year
-                                        </span>
-
-                                        <span>
-                                        <i class="fas fa-square text-gray"></i> Last year
-                                        </span>
-                                    </div>
+                                <!-- /.card-header -->
+                                <div class="card-body overflow-auto">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Institute Name</th>
+                                                <th>Last Paid Date</th>
+                                                <th>Next Payment Date</th>
+                                                <th>Settings</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="data">
+                                            <tr>
+                                                <td>INST 1</td>
+                                                <td>Indeepa Institute - Gamhapa</td>
+                                                <td>2022-11-03</td>
+                                                <td> 2022-12-03</td>
+                                                <td>
+                                                    <center>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-warning">Update</button>
+                                                            <button class="blk-btn btn btn-dark">Block</button>
+                                                            <button class="btn btn-danger">Remove</button>
+                                                        </div>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Institute Name</th>
+                                                <th>Last Payment Date</th>
+                                                <th>Payment Date</th>
+                                                <th>Settings</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
+                                <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
-
                         </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.row (main row) -->
+                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
             </section>
@@ -321,10 +245,10 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
+            <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.1.0
             </div>
+            <strong>Copyright &copy; 2021-2022 <a href="#">Revotech Solutions, Sri Lanka</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -336,41 +260,107 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- my Query -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        $(document).ready(function() {
+            $('body').addClass('layout-fixed');
+            $(window).trigger('resize');
+
+        });
+
+        //loadData
+        $(document).ready(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'php/loadInstitutesToTbl.php',
+                dataType: 'html',
+                success: function(data) {
+                    $("#data").html(data);
+                }
+            });
+        });
+
+        function block(id) {
+            $.ajax({
+                type: 'GET',
+                url: 'php/blockInst.php',
+                data: {
+                    id: id
+                },
+                success: function(res) {
+                    if (res == 1) {
+                        toastr.success('Institute Has Been Blocked');
+                    } else if (res == 2) {
+                        toastr.error('Unexpected Error Occured, Please Try Again');
+                    } else if (res == 3) {
+                        toastr.warning('Please fill all of required fields');
+                    } else if (res == 4) {
+                        toastr.info('Duplicate Entry!\nStuInstitutedent is already registered.');
+                    }
+                    loadTbl();
+                }
+            });
+        }
+
+        function loadTbl() {
+            $.ajax({
+                type: 'GET',
+                url: 'php/loadInstitutesToTbl.php',
+                dataType: 'html',
+                success: function(data) {
+                    $("#data").html(data);
+                }
+            });
+        }
+
+        function update(id){
+            $(location).attr('href', 'updateInstitute.php?id='+id+'');
+        }
     </script>
+
     <!-- Bootstrap 4 -->
-    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="../plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="../plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="../plugins/moment/moment.min.js"></script>
-    <script src="../plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="../plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="plugins/toastr/toastr.min.js"></script>
+    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard3.js"></script>
+    <script src="dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>

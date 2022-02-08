@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -262,7 +263,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                             </div>
-                                            <input type="text" id="dob" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                            <input type="text" id="dob" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -531,7 +532,7 @@
                     var address = $("#address").val();
                     var school = $("#school").val();
                     var eid = $("#eid").val();
-                    var dob = $("#dob").val();
+                    var dob = $("#dob").val().replaceAll('/', '-');
                     var email = $("#email").val();
                     var emergency = $("#emergency").val();
                     if($("#name").val() != "" && $("#mobile").val() != "" && $("#address").val() != "" && $("#dob").val() != ""){
@@ -549,16 +550,17 @@
                                 dob: dob
                             },
                             success: function(res){
-                                if(res == 1){
-                                    toastr.success('Student Has Been Added');
-                                    clear();
-                                }else if(res == 2){
-                                    toastr.error('Unexpected Error Occured, Please Try Again');
-                                }else if(res == 3){
-                                    toastr.warning('Please fill all of required fields');
-                                }else if(res == 4){
-                                    toastr.info('Duplicate Entry!\nStudent is already registered.');
-                                }
+                                alert(res);
+                                // if(res == 1){
+                                //     toastr.success('Student Has Been Added');
+                                //     clear();
+                                // }else if(res == 2){
+                                //     toastr.error('Unexpected Error Occured, Please Try Again');
+                                // }else if(res == 3){
+                                //     toastr.warning('Please fill all of required fields');
+                                // }else if(res == 4){
+                                //     toastr.info('Duplicate Entry!\nStudent is already registered.');
+                                // }
                             }
                         });
                     }else{

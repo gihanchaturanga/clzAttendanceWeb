@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'DB.php';
     // include 'common.php';
     
@@ -33,7 +34,8 @@
             }else{
                 
                 //add data to database
-                $query = "INSERT INTO user (name, mobile, username, pwd, position, timestamp) VALUES('$name', '$mobile', '$user', '$pwd', 'TEACHER', '$date')";
+                $inst_id = $_SESSION['INST_ID'];
+                $query = "INSERT INTO user (name, mobile, username, pwd, position, inst_id, timestamp) VALUES('$name', '$mobile', '$user', '$pwd', 'TEACHER', '$inst_id', '$date')";
                 $res = mysqli_query($conn, $query);
                 if($res == 1){
                     echo 1;
