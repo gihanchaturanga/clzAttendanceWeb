@@ -22,12 +22,13 @@
         $mobile = fil($mobile_);
         $user = fil($user_);
         $pwd = fil($pwd_);
+        $inst = $_SESSION['INST_ID'];
 
         // echo $name.$mobile.$user.$pwd;
 
         if(!empty($name) && !empty($mobile) && !empty($user) && !empty($pwd)){
             
-            $query = "SELECT * FROM user WHERE stat = '1' AND mobile = '$mobile' OR username = '$user'";
+            $query = "SELECT * FROM user WHERE stat = '1' AND mobile = '$mobile' AND inst_id = '$inst' OR username = '$user' AND inst_id = '$inst'";
             $res = mysqli_query($conn, $query);
             if(mysqli_num_rows($res) > 0){
                 echo 4;

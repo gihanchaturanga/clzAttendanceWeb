@@ -528,7 +528,7 @@
                 $("#name").focus();
                 $("#input").click(function(){
                     var name = $("#name").val();
-                    var mobile = $("#mobile").val();
+                    var mobile = $("#mobile").val().replaceAll("\)", '').replaceAll("\(", '').replaceAll("-", '').replaceAll(' ', '');
                     var address = $("#address").val();
                     var school = $("#school").val();
                     var eid = $("#eid").val();
@@ -550,17 +550,16 @@
                                 dob: dob
                             },
                             success: function(res){
-                                alert(res);
-                                // if(res == 1){
-                                //     toastr.success('Student Has Been Added');
-                                //     clear();
-                                // }else if(res == 2){
-                                //     toastr.error('Unexpected Error Occured, Please Try Again');
-                                // }else if(res == 3){
-                                //     toastr.warning('Please fill all of required fields');
-                                // }else if(res == 4){
-                                //     toastr.info('Duplicate Entry!\nStudent is already registered.');
-                                // }
+                                if(res == 1){
+                                    toastr.success('Student Has Been Added');
+                                    clear();
+                                }else if(res == 2){
+                                    toastr.error('Unexpected Error Occured, Please Try Again');
+                                }else if(res == 3){
+                                    toastr.warning('Please fill all of required fields');
+                                }else if(res == 4){
+                                    toastr.info('Duplicate Entry!\nStudent is already registered.');
+                                }
                             }
                         });
                     }else{

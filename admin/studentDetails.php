@@ -208,8 +208,8 @@
                                     </div>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                <div class="card-body overflow-auto table-hover">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>e-ID</th>
@@ -242,15 +242,6 @@
                                                 <td>President's College, Minuwangoda</td>
                                             </tr>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>e-ID</th>
-                                                <th>Student Name</th>
-                                                <th>Mobile No.</th>
-                                                <th>Address</th>
-                                                <th>School</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
@@ -319,6 +310,34 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+    </script>
+    <script>
+        var teacher = null;
+        $(document).ready(function(){
+
+            $("#teacher").change(function(){
+                teacher = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '../php/loadClsses.php',
+                    data: {
+                        id: teacher
+                    },
+                    success: function(data){
+                        $("#class").html(data);
+                    }
+                });
+            });
+
+            $.ajax({
+                type: 'GET',
+                url: '../php/loadStudentDetails.php',
+                dataType: 'html',
+                success: function(data){
+                    $("#datas").html(data);
+                }
             });
         });
     </script>

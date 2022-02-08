@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2022 at 08:41 AM
+-- Generation Time: Feb 08, 2022 at 02:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.27
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `attendanceWebNew`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class`
+--
+
+CREATE TABLE `class` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `grade` varchar(30) NOT NULL,
+  `time` time NOT NULL,
+  `t_id` int(11) NOT NULL,
+  `day` varchar(10) DEFAULT NULL,
+  `profit` decimal(10,0) DEFAULT NULL,
+  `profitType` int(11) NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `stat` tinyint(2) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cls_payment`
+--
+
+CREATE TABLE `cls_payment` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `amount` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -69,6 +101,14 @@ CREATE TABLE `student` (
   `dob` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `name`, `mobile`, `address`, `email`, `school`, `emergency`, `eid`, `timestamp`, `stat`, `inst_id`, `dob`) VALUES
+(1, 'pamudi bhagya attanayake', '0716574837', '245/1, thotillagahawatta, katuwellegama', 'bhagya@gmail.com', 'presidet\'s college, minuwangoda', '0775179587', 'NULL', '2022-02-08 13:17:54', 1, 1, '2003-08-19'),
+(2, 'dasun umayanga kumara', '0787647362', '288/3, thotillagahawatta, katuwellegama', '', '', '', 'NULL', '2022-02-08 13:26:53', 1, 1, '1998-02-08');
+
 -- --------------------------------------------------------
 
 --
@@ -93,11 +133,25 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `mobile`, `username`, `pwd`, `position`, `inst_id`, `timestamp`, `stat`) VALUES
 (1, 'Super Admin', '0775179587', 'admin@gmail.com', 'asd', 'DEV', NULL, '2022-02-08 08:31:42', 1),
-(2, 'gihan chathuranga attanayake', '0726387197', 'admin', 'asd', 'ADMIN', 1, '2022-02-08 13:04:56', 1);
+(2, 'gihan chathuranga attanayake', '0726387197', 'admin', 'asd', 'ADMIN', 1, '2022-02-08 13:04:56', 1),
+(3, 'chathuranga attanayake', '0775179587', 'chathu', 'asd', 'TEACHER', 1, '2022-02-08 15:04:12', 1),
+(4, 'attanayake', '0775179587', 'gihanchathu@gmail.com', 'asd', 'TEACHER', 1, '2022-02-08 15:07:08', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cls_payment`
+--
+ALTER TABLE `cls_payment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `institute`
@@ -122,6 +176,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cls_payment`
+--
+ALTER TABLE `cls_payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
@@ -131,13 +197,13 @@ ALTER TABLE `institute`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -510,7 +511,7 @@
 
                 $("#input").click(function(){
                     var name = $("#name").val();
-                    var mobile = $("#mobile").val();
+                    var mobile = $("#mobile").val().replaceAll("\)", '').replaceAll("\(", '').replaceAll("-", '').replaceAll(' ', '');
                     var user = $("#username").val();
                     var pwd = $("#pwd").val();
                     //checking empty fields
