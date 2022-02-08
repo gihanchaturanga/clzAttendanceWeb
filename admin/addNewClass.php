@@ -1,11 +1,14 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    include '../php/DB.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add an Admin</title>
+    <title>Add an Class</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -231,7 +234,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                                 </div>
-                                                <input id="mobile" type="text" class="form-control">
+                                                <input id="grade" type="text" class="form-control">
                                             </div>
                                         </div>
                                         <!-- /.input group -->
@@ -243,23 +246,29 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="far fa-user"></i></span>
                                                 </div>
-                                                <select id="username" class="form-control">
-                                                    <option>- Select Teacher -</option>
-                                                    <option>Teacher one name</option>
-                                                    <option>Teacher two name</option>
+                                                <select id="teacher" class="form-control">
+                                                    <option value="">- Select the teacher -</option>
+                                                    <?php
+                                                        $inst = $_SESSION['INST_ID'];
+                                                        $sql = "SELECT * FROM user WHERE stat = '1' AND  inst_id = '$inst' AND position = 'TEACHER'";
+                                                        $res = mysqli_query($conn, $sql);
+                                                        while($row = mysqli_fetch_array($res)){
+                                                            echo '<option value="'.$row['id'].'">'.ucwords($row['name']).'</option>';
+                                                        }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="bootstrap-timepicker">
-                                            <label>Time picker<span class="text-danger">*</span></label>
+                                            <label>Class Time<span class="text-danger">*</span></label>
 
                                             <div class="input-group date" id="timepicker" data-target-input="nearest">
                                                 <div class="input-group-prepend" data-target="#timepicker" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="far fa-clock"></i></div>
                                                 </div>
-                                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" />
+                                                <input type="text" id="time" class="form-control datetimepicker-input" data-target="#timepicker" />
                                             </div>
                                             <!-- /.input group -->
 
@@ -274,14 +283,14 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                                 </div>
-                                                <select id="pwd" type="text" class="form-control">
-                                                    <option>Monday</option>
-                                                    <option>Tuesday</option>
-                                                    <option>Wednesday</option>
-                                                    <option>Thursday</option>
-                                                    <option>Friday</option>
-                                                    <option>Saturday</option>
-                                                    <option>Sunday</option>
+                                                <select id="day" type="text" class="form-control">
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                    <option value="Sunday">Sunday</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -293,13 +302,13 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                                 </div>
-                                                <input name="profit" type="text" class="form-control">
+                                                <input name="profit" id="profit" type="text" class="form-control">
                                                 <div class="input-group-append">
-                                                    <select class="dropdown-toggle btn btn-secondary">
-                                                        <option>precentage (%)</option>
-                                                        <option>Amount Per Student</option>
-                                                        <option>Fixed Amount</option>
-                                                        </select>
+                                                    <select id="profitType" class="dropdown-toggle btn btn-secondary">
+                                                        <option value="1">precentage (%)</option>
+                                                        <option value="2">Amount Per Student</option>
+                                                        <option value="3">Fixed Amount</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -518,46 +527,7 @@
             }
             // DropzoneJS Demo Code End
     </script>
-    <script>
-        $(document).ready(function() {
-            $("#input").click(function() {
-                if ($("#name").val() == "") {
-                    $("#name").addClass("is-invalid").focus();
-                    toastr.error('Please fill all of required fields..!')
-                } else {
-                    if ($("#institute").val() == "") {
-                        $("#institute").addClass("is-invalid").focus();
-                        toastr.error('Please fill all of required fields..!')
-                    } else {
-                        if ($("#mobile").val() == "") {
-                            $("#mobile").addClass("is-invalid").focus();
-                            toastr.error('Please fill all of required fields..!')
-                        } else {
-                            if ($("#username").val() == "") {
-                                $("#username").addClass("is-invalid").focus();
-                                toastr.error('Please fill all of required fields..!')
-                            } else {
-                                if ($("#pwd").val() == "") {
-                                    $("#pwd").addClass("is-invalid").focus();
-                                    toastr.error('Please fill all of required fields..!')
-                                } else {
-                                    toastr.success('Data has Added Successfully..!');
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            $("input").keyup(function() {
-                $("input").removeClass("is-invalid");
-                $("select").removeClass("is-invalid");
-            });
-            $("select").change(function() {
-                $("input").removeClass("is-invalid");
-                $("select").removeClass("is-invalid");
-            });
-        });
-    </script>
+    
     <script src="../plugins/toastr/toastr.min.js"></script>
     <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- bs-custom-file-input -->
@@ -568,10 +538,74 @@
         });
 
         $(document).ready(function(){
-                $('body').addClass('layout-fixed');
-                $(window).trigger('resize');
+            $("#name").focus();
+
+            $('body').addClass('layout-fixed');
+            $(window).trigger('resize');
+            
+            $("#input").click(function(){
+                var time = $("#time").val();
+                var merit = time.split(" ")[1];
+                if(merit == 'PM'){
+                    var hour = parseInt(time.split(':')[0]);
+                    var min = time.split(':')[1].split(' ')[0];
+                    hour = hour + 12;
+                    time = hour+"".concat(':', min, ":00");
+                    //plus = plus.concat(":", back);
+                }else{
+                    time = time.split(' ')[0];
+                    time = time.concat(':','00');
+                    
+                }
+                var day = $("#day").val();
+                var name = $("#name").val();
+                var grade = $("#grade").val();
+                var t_id = $("#teacher").val();
+                var profit = $("#profit").val();
+                var profitType = $("#profitType").val();
+
+                if(time != "" && day != "" && grade != "" && t_id != "" && profit != "" && profitType != "" && name != ""){
+                    $.ajax({
+                        type: 'GET',
+                        url: '../php/addClass.php',
+                        data: {
+                            name: name,
+                            grade: grade,
+                            time: time,
+                            day: day,
+                            t_id: t_id,
+                            profit: profit,
+                            profitType: profitType
+                        },
+                        success: function (res){
+                            alert(res);
+                            // if(res == 1){
+                            //     toastr.success('Class Has Been Added');
+                            //     clear();
+                            // }else if(res == 2){
+                            //     toastr.error('Unexpected Error Occured, Please Try Again');
+                            // }else if(res == 3){
+                            //     toastr.warning('Please fill all of required fields nnn');
+                            // }else if(res == 4){
+                            //     toastr.info('Duplicate Entry! Class is already registered.');
+                            // }
+                        }
+                    });
+                }else{
+                    toastr.warning('Please fill all of the required fields');
+                }
                 
             });
+        });
+
+        function clear(){
+            $("#name").val("").focus();
+            $("#grade").val("");
+            $("#time").val("");
+            $("#day").val("");
+            $("#profit").val("");
+        }
+
     </script>
 </body>
 

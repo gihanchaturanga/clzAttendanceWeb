@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2022 at 02:06 PM
+-- Generation Time: Feb 08, 2022 at 08:11 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.27
 
@@ -134,7 +134,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `mobile`, `username`, `pwd`, `position`, `inst_id`, `timestamp`, `stat`) VALUES
 (1, 'Super Admin', '0775179587', 'admin@gmail.com', 'asd', 'DEV', NULL, '2022-02-08 08:31:42', 1),
 (2, 'gihan chathuranga attanayake', '0726387197', 'admin', 'asd', 'ADMIN', 1, '2022-02-08 13:04:56', 1),
-(3, 'chathuranga attanayake', '0775179587', 'chathu', 'asd', 'TEACHER', 1, '2022-02-08 15:04:12', 1),
+(3, 'chathuranga attanayake', '0775879587', 'chathu', 'asd', 'TEACHER', 1, '2022-02-08 15:04:12', 1),
 (4, 'attanayake', '0775179587', 'gihanchathu@gmail.com', 'asd', 'TEACHER', 1, '2022-02-08 15:07:08', 1);
 
 --
