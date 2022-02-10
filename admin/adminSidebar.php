@@ -178,7 +178,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="addNewStudent.php" class="nav-link">
+                                    <a href="addNewClass.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add New Classes</p>
                                     </a>
