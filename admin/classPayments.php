@@ -232,7 +232,7 @@
                                         if(isset($_GET["clz"])){
                                             $clz = $_GET["clz"];
                                         }else{
-                                            echo "not set here --------------------------------<br>-----------<br>-------------";
+                                            echo "";
                                         }
                                     ?>
 
@@ -268,8 +268,8 @@
                                                 <th>Fee (LKR)</th>
                                                 <th></th>
                                             </thead>
-                                            <tbody>
-                                                <tr>
+                                            <tbody id="data">
+                                                <!-- <tr>
                                                     <td>Chemistry | Phisics | Biology Pack</td>
                                                     <td>20000.00</td>
                                                     <td>
@@ -282,7 +282,7 @@
                                                     <td>
                                                         <i onclick="bin(1)" class="fa fa-trash text-danger" aria-hidden="true"></i>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -307,7 +307,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.1.0
             </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2021-2022 <a href="#">Revotech Solutions, Sri Lanka</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -476,8 +476,8 @@
             }
             // DropzoneJS Demo Code End
     </script>
-    <script>
-        $(document).ready(function() {
+    <!-- <script>
+        $(document).ready(function(){
         // Hide the total progress bar when nothing's uploading anymore
         myDropzone.on("queuecomplete", function(progress) {
             document.querySelector("#total-progress").style.opacity = "0"
@@ -492,7 +492,7 @@
         document.querySelector("#actions .cancel").onclick = function() {
          
         });
-    </script>
+    </script> -->
     <script src="../plugins/toastr/toastr.min.js"></script>
     <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- bs-custom-file-input -->
@@ -507,6 +507,7 @@
         }
 
         $(document).ready(function(){
+            loadTbl();
             $("#name").focus();
             $("#input").click(function(){
                 var name = $("#name").val();
@@ -523,13 +524,73 @@
                             clz: clz
                         },
                         success: function(res){
-                            alert(res);
+                            if(res == 1){
+                                toastr.success('Payment Type Has Been Added');
+                                loadTbl();
+                                clear();
+                            }else if(res == 2){
+                                toastr.error('Unexpected Error Occured, Please Try Again');
+                            }else if(res == 3){
+                                toastr.warning('Please fill all of required fields');
+                            }else if(res == 4){
+                                toastr.info('Duplicate Entry!\Payment Type is already registered.');
+                            }
                         }
                     });
                 }else{
                     toastr.warning('Please fill all of required fields');
                 }
             })
+        });
+
+
+        function loadTbl(){
+            var cls = $("#clz").val();
+            $.ajax({
+                type: 'GET',
+                url: '../php/loadPayType.php',
+                data: {
+                    cls: cls
+                },
+                success: function(data){
+                    $("#data").html(data);
+                }
+            });
+        }
+
+        function bin(id){
+            $.ajax({
+                type: 'GET',
+                url: '../php/removePayType.php',
+                data: {
+                    id: id
+                },
+                success: function(res){
+                    if(res == 1){
+                        toastr.success('Payment Type Has Been Removed');
+                        loadTbl();
+                    }else if(res == 2){
+                        toastr.error('Unexpected Error Occured, Please Try Again');
+                    }
+                }
+            });
+        }
+
+        function clear(){
+            $("#name").val("").focus();
+            $("#pay").val("");
+        }
+
+        $("#name").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#pay").focus();
+            }
+        });
+
+        $("#pay").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#input").click();
+            }
         });
 
         

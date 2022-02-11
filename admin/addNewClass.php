@@ -578,17 +578,15 @@
                             profitType: profitType
                         },
                         success: function (res){
-                            alert(res);
-                            // if(res == 1){
-                            //     toastr.success('Class Has Been Added');
-                            //     clear();
-                            // }else if(res == 2){
-                            //     toastr.error('Unexpected Error Occured, Please Try Again');
-                            // }else if(res == 3){
-                            //     toastr.warning('Please fill all of required fields nnn');
-                            // }else if(res == 4){
-                            //     toastr.info('Duplicate Entry! Class is already registered.');
-                            // }
+                            if(res == 'two'){
+                                toastr.error('Unexpected Error Occured, Please Try Again');
+                            }else if(res == 'three'){
+                                toastr.warning('Please fill all of required fields nnn');
+                            }else if(res == 'four'){
+                                toastr.info('Duplicate Entry! Class is already registered.');
+                            }else{
+                                $(location).attr('href', 'classPayments.php?clz='+res);
+                            }
                         }
                     });
                 }else{
@@ -605,6 +603,46 @@
             $("#day").val("");
             $("#profit").val("");
         }
+        $("#name").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#grade").focus();
+            }
+        });
+
+        $("#grade").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#teacher").focus();
+            }
+        });
+
+        $("#teacher").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#time").focus();
+            }
+        });
+
+        $("#time").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#day").focus();
+            }
+        });
+
+        $("#day").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#profit").focus();
+            }
+        });
+
+        $("#profit").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#profitType").focus();
+            }
+        });
+        $("#profitType").keypress(function(event){
+            if(event.keyCode == 13){
+                $("#input").click();
+            }
+        });
 
     </script>
 </body>
